@@ -8,6 +8,10 @@
 [![Project Maintenance][maintenance-shield]][maintenance-homepage]
 [![BuyMeCoffee][buymecoffeebadge]][buymecoffee]
 
+[![Lokalise][lokalise-shield]][lokalise]
+
+
+
 _Component to integrate with [kia uvo][kia_uvo]._
 
 Allows the user to see the last known state of the door sensors, locks and has a entity containing all the data returned from kia, It also exposes services to lock/unlock the vehicle
@@ -68,3 +72,5 @@ If you want to contribute to this please read the [Contribution guidelines](CONT
 [maintenance-shield]: https://img.shields.io/badge/maintainer-William%20Comartin-blue.svg?style=for-the-badge
 [releases-shield]: https://img.shields.io/github/release/wcomartin/kia_uvo.svg?style=for-the-badge
 [releases]: https://github.com/wcomartin/kia_uvo/releases
+[lokalise]: https://app.lokalise.com/project/952864945eb373f8910863.60939812
+[lokalise-shield]: https://img.shields.io/badge/Lokalise-Kia%20Uvo-green.svg?style=for-the-badge
