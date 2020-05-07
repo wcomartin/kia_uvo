@@ -125,6 +125,8 @@ async def async_setup_entry(hass: HomeAssistant, entry: ConfigEntry):
         FORCE_VEHICLE_LISTENER: {}
     }
 
+    await data[VEHICLE_ACCOUNT].async_update()
+
     for component in PLATFORMS:
         hass.async_create_task(
             hass.config_entries.async_forward_entry_setup(entry, component)
