@@ -1,0 +1,37 @@
+lock:
+  description: Lock the vehicle
+  fields:
+    vehicle_id:
+      description: ID of the vehicle to lock
+      exmaple: ""
+
+unlock:
+  description: Lock the vehicle
+  fields:
+    vehicle_id:
+      description: ID of the vehicle to lock
+      exmaple: ""
+
+start_engine:
+  description: Start the vehicle
+  fields:
+    vehicle_id:
+      description: ID of the vehicle to start
+      exmaple: ""
+    preset:
+      description: The engine start preset you would like to use
+      exmaple: "Summer"
+
+stop_engine:
+  description: Stop the vehicle
+  fields:
+    vehicle_id:
+      description: ID of the vehicle to stop
+      exmaple: ""
+
+force_update_vehicle:
+  description: Force Kia to fetch data from vehicle. This has a limited usages in a given time currently unknown, the integration is currently set to do this automatically every hour.
+  fields:
+    vehicle_id:
+      description: ID of the vehicle to fetch data from
+      exmaple: ""

@@ -1,0 +1,13 @@
+{
+  "domain": "kia_uvo",
+  "name": "Kia Uvo",
+  "config_flow": true,
+  "documentation": "https://www.home-assistant.io/integrations/kia_uvo",
+  "requirements": [
+    "KiaUvo==0.14"
+  ],
+  "dependencies": [],
+  "codeowners": [
+    "@wcomartin"
+  ]
+}

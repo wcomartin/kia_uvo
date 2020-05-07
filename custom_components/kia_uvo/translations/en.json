@@ -1,0 +1,31 @@
+{
+  "title": "Kia Uvo",
+  "config": {
+    "step": {
+      "user": {
+        "description": "Set up your Kia to integrate with Home Assistant.",
+        "data": {
+          "username": "Username",
+          "password": "Password"
+        },
+        "title": "Kia Uvo: Authentication"
+      },
+      "vehicle": {
+        "description": "Please choose the vehicle.",
+        "data": {
+          "vehicle_id": "Vehicle",
+          "pin": "Pin"
+        },
+        "title": "Kia Uvo: Choose Vehicle"
+      }
+    },
+    "error": {
+      "cannot_connect": "Failed to connect, please try again",
+      "invalid_auth": "Invalid authentication",
+      "unknown": "Unexpected error"
+    },
+    "abort": {
+      "already_configured": "Device is already configured"
+    }
+  }
+}

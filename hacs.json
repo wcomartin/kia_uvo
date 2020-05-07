@@ -1,0 +1,9 @@
+{
+    "name": "Kia Uvo",
+    "hacs": "0.24.0",
+    "domains": [
+        "binary_sensor"
+    ],
+    "iot_class": "Cloud Polling",
+    "homeassistant": "0.108.0"
+}
