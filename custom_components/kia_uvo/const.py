@@ -1,7 +1,7 @@
 """Constants for the Kia Uvo integration."""
 import logging
 
-__version__ = "0.1.8"
+__version__ = "0.1.9"
 
 DOMAIN = "kia_uvo"
 LOGGER = logging.getLogger(__package__)
