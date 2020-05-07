@@ -1,6 +1,6 @@
 [![GitHub Release][releases-shield]][releases]
 [![GitHub Activity][commits-shield]][commits]
-[![License][license-shield]](LICENSE)
+![License][license-shield]
 
 [![hacs][hacsbadge]][hacs]
 [![Project Maintenance][maintenance-shield]][maintenance-homepage]
