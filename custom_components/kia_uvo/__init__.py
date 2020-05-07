@@ -33,7 +33,6 @@ async def async_setup(hass: HomeAssistant, config):
     """Set up the Kia Uvo component."""
     if DOMAIN not in hass.data:
         hass.data[DOMAIN] = {}
-    # hass.data[DOMAIN] = {VEHICLE_ACCOUNTS: [], VEHICLE_LISTENER: {}, FORCE_VEHICLE_LISTENER: {}}
 
     # async def async_handle_start_engine(call):
     #     """Handle the service call 'start_engine'"""
@@ -103,9 +102,7 @@ async def async_setup(hass: HomeAssistant, config):
             for entry in hass.data[DOMAIN].values()
             if entry[VEHICLE_ACCOUNT].data[CONF_VEHICLE_ID] == vehicle_id)
 
-        await hass.async_add_executor_job(account.kia.login)
-        await hass.async_add_executor_job(account.kia.verify_token)
-        await hass.async_add_executor_job(account.kia.async_force_vehicle_update)
+        await account.async_force_vehicle_update()
 
     # hass.services.async_register(DOMAIN, "start_engine", async_handle_start_engine)
     # hass.services.async_register(DOMAIN, "stop_engine", async_handle_stop_engine)
@@ -171,10 +168,11 @@ async def async_unload_entry(hass: HomeAssistant, entry: ConfigEntry):
 
 class KiaUvoEntity(Entity):
 
-    def __init__(self, hass, config_entry):
+    def __init__(self, hass, config_entry, vehicle_data):
         self._hass = hass
         self._config_entry = config_entry
         self.topic_update = TOPIC_UPDATE.format(config_entry.data[CONF_VEHICLE_ID])
+        self._vehicle_data = vehicle_data
 
     async def async_added_to_hass(self):
         """Register callbacks."""
@@ -191,10 +189,28 @@ class KiaUvoEntity(Entity):
 
         self.update_from_latest_data()
 
+    @property
+    def available(self) -> bool:
+        return not not self._vehicle_data
+
+    @property
+    def device_info(self):
+        return {
+            "identifiers": {
+                # Serial numbers are unique identifiers within a specific domain
+                (DOMAIN, self._vehicle_data.vehicle["vehicleId"])
+            },
+            "name": self._vehicle_data.vehicle["nickName"],
+            "manufacturer": "Kia",
+            "model": self._vehicle_data.vehicle["modelName"],
+            "sw_version": self._vehicle_data.vehicle["modelYear"],
+            "via_device": (DOMAIN, self._vehicle_data.vehicle["vehicleId"]),
+        }
+
     @callback
     def update_from_latest_data(self):
         """Update the entity from the latest data."""
-        raise NotImplementedError
+        self._vehicle_data = self._hass.data[DOMAIN][self._config_entry.entry_id][VEHICLE_ACCOUNT].vehicle_data
 
 
 class KiaUvoData:

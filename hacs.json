@@ -5,5 +5,7 @@
         "binary_sensor"
     ],
     "iot_class": "Cloud Polling",
+    "zip_release": true,
+    "filename": "kia_uvo.zip",
     "homeassistant": "0.108.0"
 }

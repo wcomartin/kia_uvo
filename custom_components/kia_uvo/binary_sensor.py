@@ -1,5 +1,3 @@
-from homeassistant.core import callback
-
 from . import KiaUvoEntity
 from .const import DOMAIN, VEHICLE_DATA, VEHICLE_ACCOUNT
 
@@ -29,8 +27,7 @@ async def async_setup_entry(hass, config_entry, async_add_entities):
 class DoorSensor(KiaUvoEntity):
 
     def __init__(self, hass, config_entry, vehicle_data, door, name, icon):
-        super().__init__(hass, config_entry)
-        self._vehicle_data = vehicle_data
+        super().__init__(hass, config_entry, vehicle_data)
         self._door = door
         self._name = name
         self._icon = icon
@@ -61,10 +58,6 @@ class DoorSensor(KiaUvoEntity):
         return "door"
 
     @property
-    def available(self) -> bool:
-        return not not self._vehicle_data
-
-    @property
     def name(self):
         return f'{self._vehicle_data.vehicle["nickName"]} {self._name}'
 
@@ -72,17 +65,12 @@ class DoorSensor(KiaUvoEntity):
     def unique_id(self):
         return f'kiauvo-{self._door}-{self._vehicle_data.vehicle["vehicleId"]}'
 
-    @callback
-    def update_from_latest_data(self):
-        """Update the sensor."""
-        self._vehicle_data = self._hass.data[DOMAIN][self._config_entry.entry_id][VEHICLE_ACCOUNT].vehicle_data
 
 
 class LockSensor(KiaUvoEntity):
 
     def __init__(self, hass, config_entry, vehicle_data):
-        super().__init__(hass, config_entry)
-        self._vehicle_data = vehicle_data
+        super().__init__(hass, config_entry, vehicle_data)
 
     @property
     def icon(self):
@@ -109,10 +97,6 @@ class LockSensor(KiaUvoEntity):
         return "lock"
 
     @property
-    def available(self) -> bool:
-        return not not self._vehicle_data
-
-    @property
     def name(self):
         return f'{self._vehicle_data.vehicle["nickName"]} Door Lock'
 
@@ -120,17 +104,12 @@ class LockSensor(KiaUvoEntity):
     def unique_id(self):
         return f'kiauvo-door-lock-{self._vehicle_data.vehicle["vehicleId"]}'
 
-    @callback
-    def update_from_latest_data(self):
-        """Update the sensor."""
-        self._vehicle_data = self._hass.data[DOMAIN][self._config_entry.entry_id][VEHICLE_ACCOUNT].vehicle_data
 
 
 class EngineSensor(KiaUvoEntity):
 
     def __init__(self, hass, config_entry, vehicle_data):
-        super().__init__(hass, config_entry)
-        self._vehicle_data = vehicle_data
+        super().__init__(hass, config_entry, vehicle_data)
 
     @property
     def icon(self):
@@ -158,10 +137,6 @@ class EngineSensor(KiaUvoEntity):
         return "power"
 
     @property
-    def available(self) -> bool:
-        return not not self._vehicle_data
-
-    @property
     def name(self):
         return f'{self._vehicle_data.vehicle["nickName"]} Engine'
 
@@ -169,16 +144,11 @@ class EngineSensor(KiaUvoEntity):
     def unique_id(self):
         return f'kiauvo-engine-{self._vehicle_data.vehicle["vehicleId"]}'
 
-    @callback
-    def update_from_latest_data(self):
-        """Update the sensor."""
-        self._vehicle_data = self._hass.data[DOMAIN][self._config_entry.entry_id][VEHICLE_ACCOUNT].vehicle_data
 
 
 class VehicleEntity(KiaUvoEntity):
     def __init__(self, hass, config_entry, vehicle_data):
-        super().__init__(hass, config_entry)
-        self._vehicle_data = vehicle_data
+        super().__init__(hass, config_entry, vehicle_data)
 
     @property
     def state(self):
@@ -204,8 +174,4 @@ class VehicleEntity(KiaUvoEntity):
     def unique_id(self):
         return f'kiauvo-all-data-{self._vehicle_data.vehicle["vehicleId"]}'
 
-    @callback
-    def update_from_latest_data(self):
-        """Update the sensor."""
-        self._vehicle_data = self._hass.data[DOMAIN][self._config_entry.entry_id][VEHICLE_ACCOUNT].vehicle_data
 

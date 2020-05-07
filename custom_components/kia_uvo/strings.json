@@ -8,14 +8,16 @@
         "data": {
           "username": "Username",
           "password": "Password"
-        }
+        },
+        "title": "Kia Uvo: Authentication"
       },
       "vehicle": {
         "description": "Please choose the vehicle.",
         "data": {
-          "vehicle": "Vehicle",
+          "vehicle_id": "Vehicle",
           "pin": "Pin"
-        }
+        },
+        "title": "Kia Uvo: Choose Vehicle"
       }
     },
     "error": {
