@@ -41,7 +41,7 @@ Platform | Description
 [commits]: https://github.com/wcomartin/kia_uvo/commits/master
 [hacs]: https://github.com/custom-components/hacs
 [hacsbadge]: https://img.shields.io/badge/HACS-Custom-orange.svg?style=for-the-badge
-[kiauvoimg]: kia_uvo2.png
+[kiauvoimg]: https://upload.wikimedia.org/wikipedia/en/0/0d/Kia_UVO_Logo.png
 [forum-shield]: https://img.shields.io/badge/community-forum-brightgreen.svg?style=for-the-badge
 [forum]: https://community.home-assistant.io/
 [license-shield]: https://img.shields.io/github/license/wcomartin/kia_uvo.svg?style=for-the-badge
