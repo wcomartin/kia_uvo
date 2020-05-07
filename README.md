@@ -10,6 +10,8 @@
 
 _Component to integrate with [kia uvo][kia_uvo]._
 
+Allows the user to see the last known state of the door sensors, locks and has a entity containing all the data returned from kia, It also exposes services to lock/unlock the vehicle
+
 **This component will set up the following platforms.**
 
 Platform | Description
