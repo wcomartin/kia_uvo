@@ -11,6 +11,8 @@
 [![Lokalise][lokalise-shield]][lokalise]
 
 
+# Work in Progress: Currently only works in Canada
+
 
 _Component to integrate with [kia uvo][kia_uvo]._
 
